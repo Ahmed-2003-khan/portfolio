@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+}
+
+header {
+  background-color: #0d0d2b;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 1.5em;
+  color: #3bb6ff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #3bb6ff;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #101010;
+}
+
+.hero-title {
+  font-size: 3em;
+  color: #3bb6ff;
+}
+
+section {
+  padding: 60px 30px;
+}
+
+section h2 {
+  color: #3bb6ff;
+  border-bottom: 2px solid #3bb6ff;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.project {
+  margin-bottom: 30px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-left: 5px solid #3bb6ff;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+  transform: scale(1.03);
+  background-color: #222;
+  box-shadow: 0 0 12px #3bb6ff55;
+  border-left-color: #00ccff;
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0d0d2b;
+  color: white;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-bar {
+  background-color: #3bb6ff;
+  height: 20px;
+  width: 0;
+  margin-bottom: 10px;
+  transition: width 1s ease;
+  color: white;
+  padding-left: 10px;
+  line-height: 20px;
+}
+
+.input-error {
+  border: 2px solid red;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #eeeeee;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode a {
+  color: #3bb6ff;
+}
