@@ -7,22 +7,30 @@ body {
 
 header {
   background-color: #0d0d2b;
-  padding: 15px 30px;
+}
+
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 30px;
+  flex-wrap: wrap;
 }
 
-nav .logo {
-  font-size: 1.5em;
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
   color: #3bb6ff;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
 }
+
 
 nav a {
   text-decoration: none;
@@ -117,4 +125,18 @@ body.dark-mode footer {
 
 body.dark-mode a {
   color: #3bb6ff;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
 }
