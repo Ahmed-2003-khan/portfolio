@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ahmed Ali Khan | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
@@ -32,10 +35,13 @@
     </p>
   </section>
 
-  <section id="projects" class="reveal">
+  <section class="reveal">
     <h2>Featured Projects</h2>
+  </section>
+  
+  <div id="projects" class="reveal">
     <div class="project">
-      <img src="images/house-price.png" alt="House Price Predictor" class="project-img">
+      <img src="images/house_price.png" alt="House Price Predictor" class="project-img">
       <h3>🏠 House Price Predictor</h3>
       <p>
         Built with XGBoost and GridSearchCV, this app predicts real estate prices using Kaggle data and a custom Streamlit interface. Achieved 98% R² on sales prediction.
@@ -59,15 +65,30 @@
         Used MTCNN and SVC to classify faces of cricket players with 89% accuracy. Deployed as a Streamlit web app with real-time predictions.
       </p>
     </div>
-  </section>
+  </div>
 
   <section id="skills" class="reveal">
     <h2>Skills</h2>
-    <div class="skill-bar" data-skill="95">Python</div>
-    <div class="skill-bar" data-skill="90">Streamlit</div>
-    <div class="skill-bar" data-skill="85">Pandas</div>
-    <div class="skill-bar" data-skill="80">Scikit-learn</div>
-    <div class="skill-bar" data-skill="70">JavaScript</div>
+    <div class="skill-item">
+      <span class="skill-name">Python</span>
+      <div class="skill-bar" data-skill="95"></div>
+    </div>
+    <div class="skill-item">
+      <span class="skill-name">Streamlit</span>
+      <div class="skill-bar" data-skill="90"></div>
+    </div>
+    <div class="skill-item">
+      <span class="skill-name">Pandas</span>
+      <div class="skill-bar" data-skill="85"></div>
+    </div>
+    <div class="skill-item">
+      <span class="skill-name">Scikit-learn</span>
+      <div class="skill-bar" data-skill="80"></div>
+    </div>
+    <div class="skill-item">
+      <span class="skill-name">JavaScript</span>
+      <div class="skill-bar" data-skill="20"></div>
+    </div>
   </section>
 
   <section id="contact" class="reveal">
@@ -76,7 +97,7 @@
       <input name="name" type="text" placeholder="Your Name" required /><br>
       <input name="email" type="email" placeholder="Your Email" required /><br>
       <textarea name="message" placeholder="Your Message" required></textarea><br>
-      <button type="submit">Send</button>
+      <button type="submit"><span>Send Message</span></button>
     </form>
     <p>Email: <a href="mailto:ahmed2003khan@outlook.com">ahmed2003khan@outlook.com</a></p>
     <p>Phone: +92-322-6357839</p>
