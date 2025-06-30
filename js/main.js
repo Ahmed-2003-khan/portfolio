@@ -16,21 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Enhanced reveal animation with intersection observer
   const revealOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5],
+    rootMargin: '0px 0px -100px 0px'
   };
 
   const revealOnIntersect = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        observer.unobserve(entry.target);
+      } else {
+        entry.target.classList.remove('active');
       }
     });
   };
 
   const revealObserver = new IntersectionObserver(revealOnIntersect, revealOptions);
-  document.querySelectorAll('.reveal').forEach(el => {
+  
+  // Observe all animation classes
+  const animatedElements = document.querySelectorAll('.reveal, .fade-in-left, .fade-in-right, .scale-in');
+  animatedElements.forEach(el => {
     revealObserver.observe(el);
   });
 

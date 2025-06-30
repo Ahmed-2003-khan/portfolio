@@ -24,42 +24,49 @@
   </header>
 
   <section class="hero">
-    <h1 class="hero-title"></h1>
-    <p>Aspiring Data Scientist | Python | ML | AI | Streamlit Developer</p>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title"></h1>
+        <p>Aspiring Data Scientist | Python | ML | AI | Streamlit Developer</p>
+      </div>
+      <div class="profile-container">
+        <img src="images/profile_pic.jpg" alt="Ahmed Ali Khan" class="profile-pic">
+      </div>
+    </div>
   </section>
 
-  <section id="about" class="reveal">
+  <section id="about" class="fade-in-left">
     <h2>About Me</h2>
     <p>
       I am a Computer Science undergraduate from NED University, passionate about solving problems through AI and Data Science. My strengths lie in data preprocessing, model tuning, and deploying user-friendly applications using Streamlit.
     </p>
   </section>
 
-  <section class="reveal">
+  <section class="fade-in-right">
     <h2>Featured Projects</h2>
   </section>
   
-  <div id="projects" class="reveal">
-    <div class="project">
+  <div id="projects">
+    <div class="project scale-in stagger-1">
       <img src="images/house_price.png" alt="House Price Predictor" class="project-img">
       <h3>🏠 House Price Predictor</h3>
       <p>
         Built with XGBoost and GridSearchCV, this app predicts real estate prices using Kaggle data and a custom Streamlit interface. Achieved 98% R² on sales prediction.
       </p>
     </div>
-    <div class="project">
+    <div class="project scale-in stagger-2">
       <h3>💰 Loan Default Classifier</h3>
       <p>
         Cleaned and analyzed a loan dataset, trained a Decision Tree model with 99% accuracy, and deployed the app using Streamlit.
       </p>
     </div>
-    <div class="project">
+    <div class="project scale-in stagger-3">
       <h3>🧠 Crime Data Explorer</h3>
       <p>
         Performed EDA on California crime data using Pandas, visualized trends with Seaborn/Matplotlib, and delivered a full video-based report.
       </p>
     </div>
-    <div class="project">
+    <div class="project scale-in stagger-4">
       <h3>🎯 Face Classifier</h3>
       <p>
         Used MTCNN and SVC to classify faces of cricket players with 89% accuracy. Deployed as a Streamlit web app with real-time predictions.
@@ -67,31 +74,31 @@
     </div>
   </div>
 
-  <section id="skills" class="reveal">
+  <section id="skills" class="fade-in-left">
     <h2>Skills</h2>
-    <div class="skill-item">
+    <div class="skill-item stagger-1">
       <span class="skill-name">Python</span>
       <div class="skill-bar" data-skill="95"></div>
     </div>
-    <div class="skill-item">
+    <div class="skill-item stagger-2">
       <span class="skill-name">Streamlit</span>
       <div class="skill-bar" data-skill="90"></div>
     </div>
-    <div class="skill-item">
+    <div class="skill-item stagger-3">
       <span class="skill-name">Pandas</span>
       <div class="skill-bar" data-skill="85"></div>
     </div>
-    <div class="skill-item">
+    <div class="skill-item stagger-4">
       <span class="skill-name">Scikit-learn</span>
       <div class="skill-bar" data-skill="80"></div>
     </div>
-    <div class="skill-item">
+    <div class="skill-item stagger-5">
       <span class="skill-name">JavaScript</span>
       <div class="skill-bar" data-skill="20"></div>
     </div>
   </section>
 
-  <section id="contact" class="reveal">
+  <section id="contact" class="fade-in-right">
     <h2>Contact</h2>
     <form id="contact-form">
       <input name="name" type="text" placeholder="Your Name" required /><br>
