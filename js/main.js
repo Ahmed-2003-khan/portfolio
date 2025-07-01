@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Theme Toggle Functionality
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  
+  // Check for saved theme preference or default to dark mode
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  body.classList.toggle('light-mode', savedTheme === 'light');
+  
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme);
+  });
+
   // Smooth scrolling with easing
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -83,12 +97,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  // Timeline animation
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const animateTimeline = () => {
+    timelineItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight - 150 && rect.bottom > 0;
+      
+      if (isVisible && !item.classList.contains('active')) {
+        item.classList.add('active');
+      }
+    });
+  };
+
   // Throttled scroll event for better performance
   let ticking = false;
   const updateOnScroll = () => {
     if (!ticking) {
       requestAnimationFrame(() => {
         animateSkills();
+        animateTimeline();
         ticking = false;
       });
       ticking = true;
@@ -99,9 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initial call and also call on load
   window.addEventListener('load', () => {
-    setTimeout(animateSkills, 500);
+    setTimeout(() => {
+      animateSkills();
+      animateTimeline();
+    }, 500);
   });
   animateSkills();
+  animateTimeline();
 
   // Enhanced contact form with better validation and feedback
   const contactForm = document.querySelector('#contact-form');
