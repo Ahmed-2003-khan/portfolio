@@ -1119,33 +1119,55 @@ footer {
 .project-detail {
   max-width: 600px;
   margin: 4rem auto 2rem auto;
-  background: linear-gradient(135deg, rgba(26,26,46,0.98) 0%, rgba(59,182,255,0.08) 100%);
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(59,182,255,0.10);
-  padding: 2.5rem 2rem 2rem 2rem;
+  background: linear-gradient(135deg, rgba(26,26,46,0.98) 0%, rgba(59,182,255,0.13) 100%);
+  border-radius: 22px;
+  box-shadow: 0 12px 40px rgba(59,182,255,0.13), 0 2px 8px rgba(0,0,0,0.08);
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
   text-align: center;
   color: #e8e8e8;
-  border: 1px solid rgba(59,182,255,0.13);
+  border: 1.5px solid rgba(59,182,255,0.18);
+  position: relative;
+  animation: fadeInCard 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(40px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 .project-detail h1 {
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   color: #3bb6ff;
   margin-bottom: 1.2rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 1px;
+  text-shadow: 0 2px 12px rgba(59,182,255,0.10);
+}
+.project-detail h2 {
+  font-size: 1.5rem;
+  color: #00ccff;
+  margin: 1.5rem 0 0.7rem 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: left;
+  border-left: 4px solid #3bb6ff;
+  padding-left: 0.7rem;
+  background: linear-gradient(90deg, rgba(59,182,255,0.08) 60%, transparent 100%);
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(59,182,255,0.04);
 }
 .project-detail .project-img {
   width: 100%;
   max-width: 350px;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(59,182,255,0.13);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(59,182,255,0.13);
   margin-bottom: 1.5rem;
+  border: 2px solid rgba(59,182,255,0.13);
 }
-.project-detail p {
-  font-size: 1.1rem;
+.project-detail p, .project-detail ul li {
+  font-size: 1.15rem;
   color: #cfd8dc;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
 }
 .project-detail ul {
   list-style: none;
@@ -1154,16 +1176,34 @@ footer {
 }
 .project-detail ul li {
   margin-bottom: 0.7rem;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
+  position: relative;
+  padding-left: 1.5em;
+}
+.project-detail ul li::before {
+  content: '';
+  position: absolute;
+  left: 0.3em;
+  top: 0.7em;
+  width: 0.7em;
+  height: 0.7em;
+  background: linear-gradient(135deg, #3bb6ff, #00ccff);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(59,182,255,0.13);
+  display: inline-block;
 }
 .project-detail a {
   color: #3bb6ff;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.2s;
+  transition: color 0.2s, box-shadow 0.2s;
+  border-bottom: 1.5px solid rgba(59,182,255,0.18);
+  padding-bottom: 2px;
 }
 .project-detail a:hover {
   color: #00ccff;
+  box-shadow: 0 2px 8px rgba(59,182,255,0.13);
+  border-bottom: 1.5px solid #00ccff;
 }
 .project-detail .project-learn-more {
   margin-top: 1.2rem;
@@ -1173,16 +1213,19 @@ footer {
   margin-top: 2rem;
   color: #fff;
   background: linear-gradient(135deg, #3bb6ff, #00ccff);
-  padding: 0.6rem 1.4rem;
-  border-radius: 8px;
-  font-weight: 600;
+  padding: 0.7rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 700;
   text-decoration: none;
-  transition: background 0.3s, color 0.2s, transform 0.2s;
+  transition: background 0.3s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(59,182,255,0.13);
+  letter-spacing: 0.5px;
 }
 .project-detail .back-link:hover {
   background: linear-gradient(135deg, #1e40af, #3bb6ff);
   color: #fff;
   transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(59,182,255,0.18);
 }
 @media (max-width: 700px) {
   .project-detail {
@@ -1190,9 +1233,21 @@ footer {
     padding: 1.2rem 0.3rem 1.5rem 0.3rem;
   }
   .project-detail h1 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+  }
+  .project-detail h2 {
+    font-size: 1.15rem;
+    padding-left: 0.4rem;
   }
   .project-detail .project-img {
     max-width: 95vw;
   }
+  .project-detail p, .project-detail ul li {
+    font-size: 1rem;
+  }
+}
+
+/* Remove custom bullet for ul with only links (e.g., GitHub/Live Demo) */
+.project-detail ul.link-list li::before {
+  display: none;
 }

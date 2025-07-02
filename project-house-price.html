@@ -8,12 +8,38 @@
 </head>
 <body>
   <main class="project-detail">
-    <h1>🏠 House Price Predictor</h1>
+    <h1>🏠 House Price Predictor – Real Estate Valuation in Pakistan</h1>
     <img src="images/house_price.png" alt="House Price Predictor" class="project-img" style="max-width:400px; margin-bottom:1.5rem;">
-    <p>This is a placeholder for the detailed description of the House Price Predictor project. You can add more information about the dataset, algorithms, features, and results here.</p>
-    <ul>
-      <li><strong>GitHub:</strong> <a href="#" target="_blank">View Repository</a></li>
-      <li><strong>Live Demo:</strong> <a href="#" target="_blank">View Website</a></li>
+    <p>This project focuses on building an intelligent and reliable system for predicting housing prices across various cities in Pakistan. The tool is designed to support both home buyers and real estate investors by providing data-driven property value estimations through an interactive web application.</p>
+    <h2>🔍 Problem Statement & Initial Challenges</h2>
+    <p>The project began with the goal of collecting real estate data directly from Zameen.com, a popular Pakistani property portal. However, the web-scraped dataset lacked many important features, leading to a modest 83% accuracy in predictions.</p>
+    <p>To overcome this limitation, I transitioned to a more comprehensive and feature-rich Kaggle dataset, which significantly improved the model's performance by offering deeper insights into the Pakistani real estate landscape.</p>
+    <h2>🤖 Model Development & Optimization</h2>
+    <ul style="text-align:left; max-width:500px; margin:0 auto 1.5rem auto;">
+      <li>Evaluated multiple regression models including Linear Regression, Random Forest, and Gradient Boosting. XGBoost emerged as the most effective model.</li>
+      <li>Performed hyperparameter tuning using GridSearchCV to maximize model performance.</li>
+      <li>Built two separate models: Sale Model (R² = 98%) and Rental Model (R² = 89%).</li>
+      <li>Utilized Mahalanobis distance for outlier detection to maintain data integrity and enhance prediction accuracy.</li>
+      <li>Models accurately capture the trends and variables influencing housing prices in different regions of Pakistan.</li>
+    </ul>
+    <h2>📊 Feature Engineering & Data Processing</h2>
+    <ul style="text-align:left; max-width:500px; margin:0 auto 1.5rem auto;">
+      <li>Outlier detection and removal.</li>
+      <li>Handling of missing values and noisy data.</li>
+      <li>Encoding of categorical features like city, property type, and number of bedrooms.</li>
+      <li>Feature scaling to normalize property size and price ranges.</li>
+    </ul>
+    <p>The thoughtful feature engineering process was crucial in improving model generalization and reducing overfitting.</p>
+    <h2>🌐 Web Application Deployment</h2>
+    <ul style="text-align:left; max-width:500px; margin:0 auto 1.5rem auto;">
+      <li>Developed a fully interactive web application using Streamlit, hosted on the Streamlit Community Cloud.</li>
+      <li>Users can select between sale and rental predictions, enter property details, and receive real-time estimated prices with intuitive visual feedback.</li>
+      <li>The interface is clean, responsive, and requires no technical expertise, making it ideal for everyday users in the real estate market.</li>
+    </ul>
+    <p>This project highlights my ability to combine data scraping, advanced regression techniques, outlier handling, and web development to solve real-world business problems. It demonstrates end-to-end skills in machine learning, model tuning, and deploying production-ready tools for public use.</p>
+    <ul class="link-list">
+      <li><strong>GitHub:</strong> <a href="https://github.com/Ahmed-2003-khan/House-Price-Prediction-website" target="_blank">View Repository</a></li>
+      <li><strong>Live Demo:</strong> <a href="https://house-price-prediction-website.streamlit.app/" target="_blank">View Website</a></li>
     </ul>
     <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
   </main>

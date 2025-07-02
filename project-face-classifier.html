@@ -8,12 +8,30 @@
 </head>
 <body>
   <main class="project-detail">
-    <h1>🎯 Face Classifier</h1>
+    <h1>🎯 Face Classification Project</h1>
     <img src="images/face_classifier.png" alt="Face Classifier" class="project-img" style="max-width:400px; margin-bottom:1.5rem;">
-    <p>This is a placeholder for the detailed description of the Face Classifier project. You can add more information about the dataset, algorithms, features, and results here.</p>
-    <ul>
-      <li><strong>GitHub:</strong> <a href="#" target="_blank">View Repository</a></li>
-      <li><strong>Live Demo:</strong> <a href="#" target="_blank">View Website</a></li>
+    <p>This project focuses on building a machine learning system capable of recognizing and classifying the faces of popular cricket players. With limited computational resources, I scoped the project to six well-known players, demonstrating the feasibility and scalability of automated face recognition in sports media and fan engagement applications.</p>
+    <h2>🔍 Project Overview</h2>
+    <p>The goal was to create a facial recognition model that could distinguish between multiple cricket players based solely on their facial features. This involved building a pipeline for image processing, face detection, feature extraction, model training, and deployment.</p>
+    <h2>🛠️ Methodology</h2>
+    <ul style="text-align:left; max-width:500px; margin:0 auto 1.5rem auto;">
+      <li><strong>Face Detection:</strong> Initially experimented with OpenCV Haar Cascades, but the results lacked accuracy and consistency. Transitioned to MTCNN (Multi-task Cascaded Convolutional Networks) for precise and reliable face detection and cropping.</li>
+      <li><strong>Feature Extraction:</strong> Performed Wavelet Transformation to capture texture-based features in the images. Combined the original images with their wavelet-transformed versions using horizontal stacking to enrich the feature set.</li>
+      <li><strong>Model Training:</strong> Trained a Support Vector Classifier (SVC) that achieved an 82% accuracy on the initial test set. Implemented Image Augmentation techniques (rotation, zoom, flipping) to expand the dataset and increase diversity, resulting in a boosted accuracy of 89%.</li>
+      <li><strong>Model Tuning:</strong> Employed GridSearchCV for hyperparameter tuning and cross-validation. Compared performance against other models such as Logistic Regression and Random Forest, confirming SVC as the best-performing model.</li>
+    </ul>
+    <h2>🧪 Dataset & Limitations</h2>
+    <p>The dataset consisted of a few hundred labeled images per player, sourced from online image repositories. Due to limited computing resources, the model was constrained to six players. However, the pipeline is designed to scale with larger datasets and more powerful hardware.</p>
+    <h2>🌐 Web Deployment</h2>
+    <ul style="text-align:left; max-width:500px; margin:0 auto 1.5rem auto;">
+      <li>Developed a Streamlit web application, allowing users to upload an image and classify it in real-time.</li>
+      <li>The app is hosted on Streamlit Community Cloud, providing a seamless user experience.</li>
+      <li>Designed with future scalability in mind—new players can easily be added as labels with further training.</li>
+    </ul>
+    <p>This project demonstrates my ability to integrate computer vision techniques, advanced feature engineering, machine learning models, and web technologies into a cohesive and deployable solution. It highlights practical skills in image processing, model evaluation, and app development under hardware constraints.</p>
+    <ul class="link-list">
+      <li><strong>GitHub:</strong> <a href="https://github.com/Ahmed-2003-khan/sports_person_classifier_app" target="_blank">View Repository</a></li>
+      <li><strong>Live Demo:</strong> <a href="https://sportspersonclassifierapp-btcwjyie8utim3d8csvuhy.streamlit.app/" target="_blank">View Website</a></li>
     </ul>
     <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
   </main>
