@@ -294,4 +294,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   `;
   document.head.appendChild(style);
+
+  // Project Details Modal Functionality
+  const modal = document.getElementById('project-modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalClose = document.querySelector('.project-modal-close');
+
+  projects.forEach(project => {
+    project.addEventListener('click', () => {
+      const title = project.getAttribute('data-title');
+      const img = project.getAttribute('data-img');
+      const desc = project.getAttribute('data-desc');
+      modalTitle.textContent = title;
+      modalImg.src = img;
+      modalImg.alt = title;
+      modalDesc.textContent = desc;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
 });

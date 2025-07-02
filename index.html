@@ -131,33 +131,37 @@
   </section>
   
   <div id="projects">
-    <div class="project scale-in stagger-1">
+    <div class="project scale-in stagger-1" data-title="House Price Predictor" data-img="images/house_price.png" data-desc="Built with XGBoost and GridSearchCV, this app predicts real estate prices using Kaggle data and a custom Streamlit interface. Achieved 98% R² on sales prediction.">
       <img src="images/house_price.png" alt="House Price Predictor" class="project-img">
       <h3>🏠 House Price Predictor</h3>
       <p>
         Built with XGBoost and GridSearchCV, this app predicts real estate prices using Kaggle data and a custom Streamlit interface. Achieved 98% R² on sales prediction.
       </p>
+      <a href="project-house-price.html" class="project-learn-more" target="_blank">Learn More</a>
     </div>
-    <div class="project scale-in stagger-2">
+    <div class="project scale-in stagger-2" data-title="Loan Default Classifier" data-img="images/loan.png" data-desc="Cleaned and analyzed a loan dataset, trained a Decision Tree model with 99% accuracy, and deployed the app using Streamlit.">
       <img src="images/loan.png" alt="Loan Default Classifier" class="project-img">
       <h3>💰 Loan Default Classifier</h3>
       <p>
         Cleaned and analyzed a loan dataset, trained a Decision Tree model with 99% accuracy, and deployed the app using Streamlit.
       </p>
+      <a href="project-loan.html" class="project-learn-more" target="_blank">Learn More</a>
     </div>
-    <div class="project scale-in stagger-3">
+    <div class="project scale-in stagger-3" data-title="Crime Data Explorer" data-img="images/crime.jpg" data-desc="Performed EDA on California crime data using Pandas, visualized trends with Seaborn/Matplotlib, and delivered a full video-based report.">
       <img src="images/crime.jpg" alt="Crime Data Explorer" class="project-img">
       <h3>🧠 Crime Data Explorer</h3>
       <p>
         Performed EDA on California crime data using Pandas, visualized trends with Seaborn/Matplotlib, and delivered a full video-based report.
       </p>
+      <a href="project-crime.html" class="project-learn-more" target="_blank">Learn More</a>
     </div>
-    <div class="project scale-in stagger-4">
+    <div class="project scale-in stagger-4" data-title="Face Classifier" data-img="images/face_classifier.png" data-desc="Used MTCNN and SVC to classify faces of cricket players with 89% accuracy. Deployed as a Streamlit web app with real-time predictions.">
       <img src="images/face_classifier.png" alt="Face Classifier" class="project-img">
       <h3>🎯 Face Classifier</h3>
       <p>
         Used MTCNN and SVC to classify faces of cricket players with 89% accuracy. Deployed as a Streamlit web app with real-time predictions.
       </p>
+      <a href="project-face-classifier.html" class="project-learn-more" target="_blank">Learn More</a>
     </div>
   </div>
 
@@ -206,5 +210,15 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <!-- Project Details Modal -->
+  <div id="project-modal" class="project-modal">
+    <div class="project-modal-content">
+      <span class="project-modal-close">&times;</span>
+      <img id="modal-img" src="" alt="Project Image" class="project-modal-img">
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
 </body>
 </html>
