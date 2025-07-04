@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadingScreen = document.getElementById('loadingScreen');
   const loadingLetter = document.querySelector('.loading-letter');
   
-  // Add pulsing animation after all letters appear
+  // Add enhanced pulsing animation after a delay
   setTimeout(() => {
     loadingLetter.classList.add('animate-pulse');
-  }, 1500); // Start pulsing after all letters have appeared
+  }, 1000); // Start enhanced pulsing after 1 second
   
   // Hide loading screen after page loads
   window.addEventListener('load', () => {
