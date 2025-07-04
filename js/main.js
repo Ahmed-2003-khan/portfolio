@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Loading Screen Functionality
+  const loadingScreen = document.getElementById('loadingScreen');
+  const loadingLetter = document.querySelector('.loading-letter');
+  
+  // Add pulsing animation after all letters appear
+  setTimeout(() => {
+    loadingLetter.classList.add('animate-pulse');
+  }, 1500); // Start pulsing after all letters have appeared
+  
+  // Hide loading screen after page loads
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      loadingScreen.classList.add('fade-out');
+      // Remove loading screen from DOM after animation
+      setTimeout(() => {
+        loadingScreen.remove();
+      }, 800);
+    }, 3000); // Show loading for 3 seconds to see the full animation
+  });
+
   // Theme Toggle Functionality
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
