@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Enhanced reveal animation with intersection observer
+  // Enhanced reveal animation with intersection observer - Optimized for faster triggering
   const revealOptions = {
-    threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5],
-    rootMargin: '0px 0px -100px 0px'
+    threshold: [0, 0.05, 0.1, 0.15, 0.2],
+    rootMargin: '0px 0px -50px 0px'
   };
 
   const revealOnIntersect = (entries, observer) => {
@@ -123,32 +123,32 @@ document.addEventListener('DOMContentLoaded', () => {
     typewriter(heroTitle, "Hi, I'm Ahmed — Data Science & AI Enthusiast");
   }
 
-  // Enhanced skills bar animation with CSS custom properties
+  // Enhanced skills bar animation with CSS custom properties - Optimized for faster triggering
   const skillBars = document.querySelectorAll('.skill-bar');
   const animateSkills = () => {
     skillBars.forEach(bar => {
       const value = bar.getAttribute('data-skill');
       const rect = bar.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight - 100 && rect.bottom > 0;
+      const isVisible = rect.top < window.innerHeight - 50 && rect.bottom > 0;
       
       if (isVisible && !bar.classList.contains('animated')) {
         bar.classList.add('animated');
         bar.style.setProperty('--skill-percentage', value + '%');
         
-        // Trigger the CSS animation
+        // Trigger the CSS animation immediately
         setTimeout(() => {
           bar.classList.add('active');
-        }, 200);
+        }, 50);
       }
     });
   };
 
-  // Timeline animation
+  // Timeline animation - Optimized for faster triggering
   const timelineItems = document.querySelectorAll('.timeline-item');
   const animateTimeline = () => {
     timelineItems.forEach(item => {
       const rect = item.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight - 150 && rect.bottom > 0;
+      const isVisible = rect.top < window.innerHeight - 80 && rect.bottom > 0;
       
       if (isVisible && !item.classList.contains('active')) {
         item.classList.add('active');
@@ -171,12 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', updateOnScroll);
   
-  // Initial call and also call on load
+  // Initial call and also call on load - Optimized for faster initial animations
   window.addEventListener('load', () => {
     setTimeout(() => {
       animateSkills();
       animateTimeline();
-    }, 500);
+    }, 100);
   });
   animateSkills();
   animateTimeline();
