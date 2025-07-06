@@ -7,6 +7,32 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     loadingLetter.classList.add('animate-pulse');
   }, 1000); // Start enhanced pulsing after 1 second
+
+  // Mobile Menu Functionality
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  
+  mobileMenuToggle.addEventListener('click', () => {
+    mobileMenuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close mobile menu when clicking on a link
+  const navLinksItems = navLinks.querySelectorAll('a');
+  navLinksItems.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+      mobileMenuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+    }
+  });
   
   // Hide loading screen after page loads
   window.addEventListener('load', () => {
