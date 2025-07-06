@@ -296,13 +296,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   if (header) {
     const handleScroll = () => {
+      const isLightMode = document.body.classList.contains('light-mode');
+      
       if (window.scrollY > 100) {
-        header.style.background = 'rgba(13, 13, 43, 0.85)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        if (isLightMode) {
+          header.style.background = 'rgba(255, 255, 255, 0.95)';
+          header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+          header.style.background = 'rgba(13, 13, 43, 0.85)';
+          header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        }
         header.style.backdropFilter = 'blur(25px)';
       } else {
-        header.style.background = 'rgba(13, 13, 43, 0.7)';
-        header.style.boxShadow = 'none';
+        if (isLightMode) {
+          header.style.background = 'rgba(255, 255, 255, 0.9)';
+          header.style.boxShadow = 'none';
+        } else {
+          header.style.background = 'rgba(13, 13, 43, 0.7)';
+          header.style.boxShadow = 'none';
+        }
         header.style.backdropFilter = 'blur(20px)';
       }
     };
@@ -312,6 +324,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add scroll listener
     window.addEventListener('scroll', handleScroll);
+    
+    // Update header on theme change
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        setTimeout(handleScroll, 50); // Small delay to ensure theme class is applied
+      });
+    }
   }
 
   // Add hover effects to project cards

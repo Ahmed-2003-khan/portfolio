@@ -1,3 +1,32 @@
+/* CSS Variables for consistent theming */
+:root {
+  /* Dark Mode Colors */
+  --dark-bg-primary: #0a0a0a;
+  --dark-bg-secondary: #1a1a2e;
+  --dark-bg-tertiary: #16213e;
+  --dark-text-primary: #e8e8e8;
+  --dark-text-secondary: #b0b0b0;
+  --dark-accent-primary: #3bb6ff;
+  --dark-accent-secondary: #00ccff;
+  --dark-border: rgba(59, 182, 255, 0.2);
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+  
+  /* Light Mode Colors */
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #f8f9fa;
+  --light-bg-tertiary: #e9ecef;
+  --light-text-primary: #212529;
+  --light-text-secondary: #495057;
+  --light-text-muted: #6c757d;
+  --light-accent-primary: #0d6efd;
+  --light-accent-secondary: #0b5ed7;
+  --light-accent-tertiary: #0a58ca;
+  --light-border: rgba(13, 110, 253, 0.2);
+  --light-shadow: rgba(0, 0, 0, 0.1);
+  --light-card-bg: rgba(255, 255, 255, 0.95);
+  --light-card-border: rgba(13, 110, 253, 0.15);
+}
+
 /* Reset and Base Styles */
 * {
   margin: 0;
@@ -17,150 +46,155 @@ body {
 
 /* Light Mode Styles */
 body.light-mode {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #cbd5e1 50%, #94a3b8 75%, #64748b 100%);
-  color: #1e293b;
+  background: linear-gradient(135deg, var(--light-bg-primary) 0%, var(--light-bg-secondary) 25%, var(--light-bg-tertiary) 50%, #dee2e6 75%, #adb5bd 100%);
+  color: var(--light-text-primary);
 }
 
 body.light-mode header {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(241, 245, 249, 0.95) 100%);
-  border-bottom: 3px solid rgba(99, 102, 241, 0.3);
-  backdrop-filter: blur(25px);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+  background: linear-gradient(135deg, var(--light-card-bg) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(241, 245, 249, 0.95) 100%) !important;
+  border-bottom: 3px solid var(--light-border) !important;
+  backdrop-filter: blur(25px) !important;
+  box-shadow: 0 8px 32px var(--light-shadow) !important;
+}
+
+/* Ensure light mode header styles are maintained on scroll */
+body.light-mode header.scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(25px) !important;
 }
 
 body.light-mode header::before {
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="header-grid-light" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(99,102,241,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23header-grid-light)"/></svg>');
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="header-grid-light" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(13,110,253,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23header-grid-light)"/></svg>');
 }
 
 body.light-mode nav a {
-  color: #374151;
+  color: var(--light-text-primary) !important;
   font-weight: 600;
-  font-size: 1.1rem;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-  background: rgba(99, 102, 241, 0.05);
+  font-size: 1rem;
+  background: rgba(13, 110, 253, 0.05);
   border: 1px solid transparent;
+  text-shadow: none;
 }
 
 body.light-mode nav a:hover {
-  color: #6366f1;
+  color: var(--light-accent-primary) !important;
   transform: translateY(-2px);
-  background: rgba(99, 102, 241, 0.1);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+  background: rgba(13, 110, 253, 0.1);
+  border-color: var(--light-border);
+  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
 }
 
 body.light-mode nav a::before {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(11, 94, 215, 0.1));
 }
 
 body.light-mode nav a::after {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
 }
 
 body.light-mode .logo {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899, #f59e0b);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary), #0056b3, #004085);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.3));
+  filter: drop-shadow(0 2px 4px rgba(13, 110, 253, 0.3));
 }
 
 body.light-mode .logo::before {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(11, 94, 215, 0.1));
 }
 
 body.light-mode .logo:hover {
-  filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.4));
+  filter: drop-shadow(0 4px 12px rgba(13, 110, 253, 0.4));
 }
 
 body.light-mode .hero {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(241, 245, 249, 0.95) 100%);
+  background: linear-gradient(135deg, var(--light-card-bg) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(241, 245, 249, 0.95) 100%);
   border-radius: 30px;
   margin: 2rem;
-  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 20px 60px var(--light-shadow);
 }
 
 body.light-mode .hero::before {
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(99,102,241,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(13,110,253,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
 }
 
 body.light-mode .hero p {
-  color: #4b5563;
+  color: var(--light-text-secondary);
   font-weight: 500;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 body.light-mode .hero-title {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899, #f59e0b);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary), #0056b3, #004085);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.3));
+  filter: drop-shadow(0 2px 4px rgba(13, 110, 253, 0.3));
 }
 
 body.light-mode .profile-pic {
-  border: 4px solid rgba(99, 102, 241, 0.3);
-  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.25);
+  border: 4px solid var(--light-border);
+  box-shadow: 0 15px 40px rgba(13, 110, 253, 0.2);
 }
 
 body.light-mode .profile-pic:hover {
-  border-color: rgba(99, 102, 241, 0.6);
-  box-shadow: 0 20px 50px rgba(99, 102, 241, 0.4);
+  border-color: var(--light-accent-primary);
+  box-shadow: 0 20px 50px rgba(13, 110, 253, 0.3);
 }
 
 body.light-mode section h2 {
-  color: #6366f1;
-  text-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: var(--light-accent-primary);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 body.light-mode section h2::after {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary), #0056b3);
 }
 
 body.light-mode .project {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
-  border: 2px solid rgba(99, 102, 241, 0.2);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
+  background: linear-gradient(135deg, var(--light-card-bg) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border: 2px solid var(--light-card-border);
+  box-shadow: 0 8px 25px var(--light-shadow);
   border-radius: 20px;
   backdrop-filter: blur(10px);
 }
 
 body.light-mode .project:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
-  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
-  border-color: rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, var(--light-bg-primary) 0%, rgba(248, 250, 252, 0.98) 100%);
+  box-shadow: 0 15px 40px rgba(13, 110, 253, 0.15);
+  border-color: var(--light-accent-primary);
   transform: translateY(-5px);
 }
 
 body.light-mode .project h3 {
-  color: #374151;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: var(--light-text-primary);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 body.light-mode .project p {
-  color: #6b7280;
+  color: var(--light-text-secondary);
 }
 
 body.light-mode #contact {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(241, 245, 249, 0.95) 100%);
-  border: 3px solid rgba(99, 102, 241, 0.2);
-  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+  background: linear-gradient(135deg, var(--light-card-bg) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(241, 245, 249, 0.95) 100%);
+  border: 3px solid var(--light-card-border);
+  box-shadow: 0 20px 60px var(--light-shadow);
   border-radius: 25px;
   backdrop-filter: blur(15px);
 }
 
 body.light-mode #contact-form input,
 body.light-mode #contact-form textarea {
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(99, 102, 241, 0.2);
-  color: #374151;
+  background: var(--light-bg-primary);
+  border: 2px solid var(--light-card-border);
+  color: var(--light-text-primary);
   backdrop-filter: blur(10px);
   font-weight: 500;
   border-radius: 12px;
@@ -168,102 +202,101 @@ body.light-mode #contact-form textarea {
 
 body.light-mode #contact-form input:focus,
 body.light-mode #contact-form textarea:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
-  background: rgba(255, 255, 255, 1);
+  border-color: var(--light-accent-primary);
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+  background: var(--light-bg-primary);
   transform: translateY(-2px);
 }
 
 body.light-mode #contact-form input::placeholder,
 body.light-mode #contact-form textarea::placeholder {
-  color: #9ca3af;
+  color: var(--light-text-muted);
   font-weight: 400;
 }
 
 body.light-mode #contact-form button {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
+  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3);
   border-radius: 12px;
 }
 
 body.light-mode #contact-form button:hover {
-  background: linear-gradient(135deg, #5b21b6, #6366f1, #8b5cf6);
-  box-shadow: 0 12px 35px rgba(99, 102, 241, 0.5);
+  background: linear-gradient(135deg, var(--light-accent-secondary), var(--light-accent-tertiary));
+  box-shadow: 0 12px 35px rgba(13, 110, 253, 0.4);
   transform: translateY(-2px);
 }
 
 body.light-mode #contact-form button::before {
-  background: linear-gradient(135deg, #ec4899, #8b5cf6, #6366f1);
+  background: linear-gradient(135deg, var(--light-accent-secondary), var(--light-accent-primary));
 }
 
 body.light-mode #contact p {
-  color: #374151;
+  color: var(--light-text-primary);
   font-weight: 500;
 }
 
 body.light-mode #contact a {
-  color: #6366f1;
+  color: var(--light-accent-primary);
   font-weight: 600;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 body.light-mode #contact a:hover {
-  color: #8b5cf6;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  color: var(--light-accent-secondary);
+  background: linear-gradient(135deg, var(--light-accent-secondary), var(--light-accent-tertiary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 body.light-mode #contact a::after {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary), #0056b3);
 }
 
 body.light-mode footer {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
-  color: #374151;
-  border-top: 3px solid rgba(99, 102, 241, 0.2);
-  box-shadow: 0 -8px 32px rgba(99, 102, 241, 0.1);
+  background: linear-gradient(135deg, var(--light-card-bg) 0%, rgba(248, 250, 252, 0.95) 100%);
+  color: var(--light-text-primary);
+  border-top: 3px solid var(--light-card-border);
+  box-shadow: 0 -8px 32px var(--light-shadow);
   backdrop-filter: blur(15px);
 }
 
 body.light-mode #skills {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(241, 245, 249, 0.95) 100%);
-  border: 3px solid rgba(99, 102, 241, 0.2);
-  box-shadow: 0 15px 50px rgba(99, 102, 241, 0.15);
+  background: linear-gradient(135deg, var(--light-card-bg) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(241, 245, 249, 0.95) 100%);
+  border: 3px solid var(--light-card-border);
+  box-shadow: 0 15px 50px var(--light-shadow);
   border-radius: 25px;
   backdrop-filter: blur(15px);
 }
 
 body.light-mode .skill-bar {
-  background: rgba(99, 102, 241, 0.1);
-  border: 2px solid rgba(99, 102, 241, 0.2);
+  background: rgba(13, 110, 253, 0.1);
+  border: 2px solid var(--light-card-border);
   border-radius: 10px;
 }
 
 body.light-mode .skill-name {
-  color: #374151;
+  color: var(--light-text-primary);
   font-weight: 700;
   font-size: 1.1rem;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 body.light-mode .skill-bar::after {
-  color: #6366f1;
+  color: var(--light-accent-primary);
   font-weight: 700;
   font-size: 1rem;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9);
 }
 
 body.light-mode .skill-bar::before {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
+  box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
   border-radius: 8px;
 }
 
@@ -388,58 +421,58 @@ body.light-mode .skill-bar::before {
 
 /* Light mode timeline styles */
 body.light-mode .timeline::after {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
+  box-shadow: 0 0 20px rgba(13, 110, 253, 0.3);
 }
 
 body.light-mode .timeline-content {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
-  border: 2px solid rgba(99, 102, 241, 0.2);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
+  background: linear-gradient(135deg, var(--light-card-bg) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border: 2px solid var(--light-card-border);
+  box-shadow: 0 8px 25px var(--light-shadow);
   border-radius: 15px;
   backdrop-filter: blur(10px);
 }
 
 body.light-mode .timeline-content:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
-  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
-  border-color: rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, var(--light-bg-primary) 0%, rgba(248, 250, 252, 0.98) 100%);
+  box-shadow: 0 15px 40px rgba(13, 110, 253, 0.15);
+  border-color: var(--light-accent-primary);
   transform: translateY(-3px);
 }
 
 body.light-mode .timeline-content h3 {
-  color: #374151;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: var(--light-text-primary);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 body.light-mode .timeline-content h4 {
-  color: #6366f1;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  color: var(--light-text-secondary);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 body.light-mode .timeline-content p {
-  color: #6b7280;
+  color: var(--light-text-secondary);
 }
 
 body.light-mode .timeline-date {
-  color: #6366f1;
+  color: var(--light-accent-primary);
   font-weight: 600;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 body.light-mode .timeline-icon {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-  border: 2px solid rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, var(--light-accent-primary), var(--light-accent-secondary));
+  box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+  border: 2px solid var(--light-border);
 }
 
 /* Typography */
@@ -638,15 +671,15 @@ nav a:hover::after {
 }
 
 body.light-mode #theme-toggle {
-  color: #6366f1;
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--light-accent-primary) !important;
+  background: rgba(13, 110, 253, 0.1) !important;
+  border: 1px solid var(--light-border) !important;
 }
 
 body.light-mode #theme-toggle:hover {
-  background: rgba(99, 102, 241, 0.2);
+  background: rgba(13, 110, 253, 0.2);
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
 }
 
 body.light-mode #theme-toggle .moon-icon {
@@ -1338,24 +1371,24 @@ footer {
   }
 
   body.light-mode .theme-toggle {
-    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+    border-bottom: 1px solid var(--light-border);
   }
 
   body.light-mode .theme-toggle button {
-    background: rgba(99, 102, 241, 0.1);
-    border-color: rgba(99, 102, 241, 0.2);
-    color: #374151;
+    background: rgba(13, 110, 253, 0.1);
+    border-color: var(--light-border);
+    color: var(--light-text-primary);
   }
 
   body.light-mode .theme-toggle button::before {
-    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.1), transparent);
   }
 
   body.light-mode .theme-toggle button:hover {
-    background: rgba(99, 102, 241, 0.2);
-    border-color: rgba(99, 102, 241, 0.4);
-    color: #6366f1;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+    background: rgba(13, 110, 253, 0.2);
+    border-color: var(--light-accent-primary);
+    color: var(--light-accent-primary);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
   }
 
   /* Hero Section */
