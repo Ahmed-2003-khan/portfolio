@@ -1,3 +1,44 @@
+// Typing animation for hero section (looping, one phrase at a time)
+const typingText = document.getElementById('typing-text');
+const phrases = [
+  "Hi, I'm Ahmed",
+  'Data Science Enthusiast',
+  'AI Enthusiast'
+];
+let currentPhrase = 0;
+let currentChar = 0;
+let isDeleting = false;
+let typingSpeed = 100;
+let pauseTime = 1500;
+
+function typeLoop() {
+  const phrase = phrases[currentPhrase];
+  if (isDeleting) {
+    typingText.textContent = phrase.substring(0, currentChar - 1);
+    currentChar--;
+    if (currentChar === 0) {
+      isDeleting = false;
+      currentPhrase = (currentPhrase + 1) % phrases.length;
+      setTimeout(typeLoop, 500);
+    } else {
+      setTimeout(typeLoop, typingSpeed / 2);
+    }
+  } else {
+    typingText.textContent = phrase.substring(0, currentChar + 1);
+    currentChar++;
+    if (currentChar === phrase.length) {
+      isDeleting = true;
+      setTimeout(typeLoop, pauseTime);
+    } else {
+      setTimeout(typeLoop, typingSpeed);
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (typingText) typeLoop();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   // Loading Screen Functionality
   const loadingScreen = document.getElementById('loadingScreen');
@@ -118,10 +159,11 @@ document.addEventListener('DOMContentLoaded', () => {
     typing();
   };
 
-  const heroTitle = document.querySelector('.hero-title');
-  if (heroTitle) {
-    typewriter(heroTitle, "Hi, I'm Ahmed — Data Science & AI Enthusiast");
-  }
+  // Commented out to prevent interference with #typing-text typing animation
+  // const heroTitle = document.querySelector('.hero-title');
+  // if (heroTitle) {
+  //   typewriter(heroTitle, "Hi, I'm Ahmed — Data Science & AI Enthusiast");
+  // }
 
   // Enhanced skills bar animation with CSS custom properties - Optimized for faster triggering
   const skillBars = document.querySelectorAll('.skill-bar');
